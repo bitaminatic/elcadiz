@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!--This file has been created with toxhtml.xsl-->
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>Principal</title><link rel="stylesheet" href="codigo/treestyles.css" type="text/css"/>
+	<script type="text/javascript" src="codigo/marktree.js"> </script>
+	<script>
+	function colapsa() {
+		collapseAll(document.getElementById('base'));
+		collapseAll(document.getElementById('base1'));
+		collapseAll(document.getElementById('base2'));
+	}
+	function expande() {
+		expandAll(document.getElementById('base'));
+		expandAll(document.getElementById('base1'));
+		expandAll(document.getElementById('base2'));
+	}
+	</script>
+	</head>
+	<body>
+	<p> <FONT FACE='Arial, sans-serif' SIZE=7 COLOR='#777777'><B>ELCÁDIZ</B></FONT></p>
+	<p> <FONT FACE='Arial, sans-serif' SIZE=4 COLOR='#999999'><B>Índice de Actividades</B></FONT></p>
+
+<hr><br>
+
+	<div class="basetop"><a href="#" onclick="expande()">Expande</a> -
+	<a href="#" onclick="colapsa()">Colapsa</a></div>
+
+<table width="100%" cellpadding="4" cellspacing="0" style="border: none; page-break-inside: avoid">
+<tr valign="top">
+		<td width="33%" style="border: none; padding: 0cm">
+		<IMG SRC="ImageneSite/letras.gif" NAME="IZQUIERDA" ALIGN=RIGHT  WIDTH=50 BORDER=0>
+		<b><center>Letras</center></b>
+		</td>
+	<td width="33%" style="border: none; padding: 0cm">
+		<b><center>Letras y Trabadas</center></b>
+		<IMG SRC="ImageneSite/silabas.png" NAME="IZQUIERDA" ALIGN=RIGHT  WIDTH=75 BORDER=0>
+		</td>
+	<td width="33%" style="border: none; padding: 0cm">
+		<b><center>Conocimientos</center></b>
+		<IMG SRC="ImageneSite/conocimientos.jpg" NAME="IZQUIERDA" ALIGN=RIGHT  WIDTH=50 BORDER=0>
+		</td>
+</tr>
+<tr valign="top">
+		<td width="33%" style="border: none; padding: 0cm">
+	<div id="base" class="basetext"><ul>
+
+	
+	
+		<SCRIPT>
+		var Lista=["vocales","letra L","letra P","letra T","letra S","letra M","letra D","letra F","letra R","letra N","letra B","letra V-Ll"];
+		var Lista2=[40,45,60,55,60,60,60,67,77,62,47,60];
+		for (var j=0; j<(Lista.length) ; j++){	
+				//alert(Lista[j]);
+				document.write('<li class="col" id="'+j+'"><div class="nodecontent">'+Lista[j]+'</div>');
+				document.write('<ul class="subexp">');
+						for (var i=1; i<(Lista2[j]+1) ;i++){
+							document.write('<li class="basic" id="'+j+'_'+i+'"><div class="nodecontent"><A HREF="'+Lista[j]+i+'.html">Actividad '+i+'</A></div></li>');
+							}
+				document.write('</ul></li>');
+				}		
+		
+		</SCRIPT>
+	
+		
+	</div><SCRIPT>collapseAll(document.getElementById('base'))</SCRIPT>
+	</TD>
+
+		<td width="33%" style="border: none; padding: 0cm">
+	<div id="base1" class="basetext"><ul>
+
+	
+	
+		<SCRIPT>
+		var Lista=["letra H","letra C","letra Ch","letra Z","letra G","letra J","letra Br-Bl","letra Tr","letra Pr-Pl","letra Cr-Cl","letra Fr-Fl","letra Gr-Gl"];
+		var Lista2=[53,80,50,60,65,70,31,30,51,51,40,65];
+		for (var j=0; j<(Lista.length) ; j++){	
+				//alert(Lista[j]);
+				document.write('<li class="col" id="'+j+'"><div class="nodecontent">'+Lista[j]+'</div>');
+				document.write('<ul class="subexp">');
+						for (var i=1; i<(Lista2[j]+1) ;i++){
+							document.write('<li class="basic" id="'+j+'_'+i+'"><div class="nodecontent"><A HREF="'+Lista[j]+i+'.html">Actividad '+i+'</A></div></li>');
+							}
+				document.write('</ul></li>');
+				}		
+		
+		</SCRIPT>
+	
+		
+	</div><SCRIPT>collapseAll(document.getElementById('base1'))</SCRIPT>
+	</TD>
+<td width="33%" style="border: none; padding: 0cm">
+	<div id="base2" class="basetext"><ul>
+
+	
+	
+		<SCRIPT>
+		var Lista=["Cultura General 1","Cultura General 2","Cultura General 3","Cultura General 4","Cultura General 5","Cultura General 6","Cultura General 7","Cultura General 8","Cultura General 9","Cultura General 10"];
+		var Lista2=[20,20,20,20,20,20,20,20,20,20];
+		for (var j=0; j<(Lista.length) ; j++){	
+				//alert(Lista[j]);
+				document.write('<li class="col" id="'+j+'"><div class="nodecontent">'+Lista[j]+'</div>');
+				document.write('<ul class="subexp">');
+						for (var i=1; i<(Lista2[j]+1) ;i++){
+							document.write('<li class="basic" id="'+j+'_'+i+'"><div class="nodecontent"><A HREF="'+Lista[j]+i+'.html">Actividad '+i+'</A></div></li>');
+							}
+				document.write('</ul></li>');
+				}		
+		
+		</SCRIPT>
+	
+		
+	</div><SCRIPT>collapseAll(document.getElementById('base2'))</SCRIPT>
+	</TD>
+</TR>
+</TABLE>
+<BR>
+<BR>
+<CENTER><FONT FACE='Arial, sans-serif' SIZE=2 COLOR='#777777'><i>Elcádiz: Proyecto de Alfabetización de Adultos mediante Nuevas Tecnlogías</i> - <b> Matilde González Ibáñez<b></font></CENTER>
+	</body></html>
