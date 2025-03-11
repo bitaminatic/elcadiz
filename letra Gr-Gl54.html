@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="LibreOffice 3.5  (Linux)">
+	<META NAME="CREATED" CONTENT="20140618;9351000">
+	<META NAME="CHANGED" CONTENT="20140618;9394800">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { margin: 2cm }
+		P { margin-bottom: 0.21cm }
+	-->
+	</STYLE>
+<link rel="stylesheet" type="text/css" href="codigo/CodigoAudio/css/reset.css">
+<link rel="stylesheet" type="text/css" href="codigo/CodigoAudio/css/audio.css">
+<SCRIPT LANGUAJE="JavaScript">
+
+function insertarTexto(apartado) {
+//--------------------------------------------------------------------------------------------
+//--¡¡ATENCIÓN A LAS COMILLAS (SALVO EN EL PRIMERO) Y LAS COMAS FINALES
+//--------------------------------------------------------------------------------------------
+	var ApartadoTexto = "letra Gr-Gl", //Aqui va el nombre del apartado. ej. Vocales, A, E
+		Ejercicio = 54, //Aquí el número de Ejercicio -> se corresponde con como nombrarás el archivo tras "Apartado". ej. Apartado1.html
+		Consigna = "Escucha atentamente y escribe", // Enunciado del ejercicio
+		Imagen = "blanco.png", //nombre y extensión de la imagen ilustrativa
+		ImagenApartado= "blanco.png", //nombre y extensión de la imagen del Apartado
+		TextoDictado="Sólo cambiando el orden de una letra, escribirás Gracia o García.", // Texto completo del dictado
+		Final= 0, // si es 0 no es la pagina final del apartado, si es 1 es la final
+		rutaImagen="./ImagenesActividades/"; //NO LO TOQUES -> ruta donde debes poner todas las imágenes
+
+//---------------------------------------------------------------------------------------------
+//-------RECUERDA GUARDAR ESTE ARCHIVO COMO el [número de ejercicio].hml -> ejemplo 1.html
+//--------------------------------------------------------------------------------------------
+
+	if (apartado == "Ejercicio") {
+		return Ejercicio;
+	} else if (apartado == "ApartadoTexto") {
+		return ApartadoTexto;
+	} else if (apartado == "Consigna") {
+		return Consigna;
+	} else if (apartado == "ImagenApartado") {
+		return rutaImagen+ImagenApartado;
+	} else if (apartado == "Imagen") {
+		return rutaImagen+Imagen;
+	} else if (apartado == "Final") {
+		return Final;
+	} else if (apartado == "TextoDictado") {
+		return TextoDictado;
+	}
+}
+function Inicio ()
+	{
+	if (insertarTexto("Ejercicio")>1) {
+			return '<P ALIGN=LEFT><A HREF="'+insertarTexto("ApartadoTexto")+(insertarTexto("Ejercicio")-1)+'.html"'+'><IMG SRC="./ImageneSite/go-previous_verde.png" NAME="IZQUIERDA" ALIGN=LEFT  WIDTH=115 HEIGHT=115 BORDER=0></P>';
+			} else {return "";}
+	}
+function finDictado() {
+	document.Formulario.Campo2.value=insertarTexto("TextoDictado");
+	}
+
+</SCRIPT>
+</HEAD>
+<BODY LANG="es-ES" DIR="LTR">
+<TABLE>
+<TR>
+<TD WIDTH=50></TD>
+<TD>
+<TABLE WIDTH=843 CELLPADDING=0 CELLSPACING=0>
+	<COL WIDTH=843>
+	<TR>
+		<TD WIDTH=843 VALIGN=TOP STYLE="border: none; padding: 0cm">
+			<P><FONT FACE='Arial, sans-serif'><B>
+			<SCRIPT>document.write("<FONT SIZE=7 COLOR='#999999'> "+insertarTexto("ApartadoTexto")+"<BR>" + "<FONT COLOR='#999999'><FONT SIZE=5> ACTIVIDAD <FONT SIZE=7 COLOR='#777777'>" +insertarTexto("Ejercicio")+"</FONT></FONT><P></P>");
+			</SCRIPT>		
+			</B></FONT></FONT></FONT></P>
+		</TD>
+		<TD>
+		<SCRIPT>document.write("<IMG SRC='"+insertarTexto("ImagenApartado")+"' NAME='logo' ALIGN=LEFT BORDER=0><BR>");</SCRIPT>
+		 </TD>
+</TR>
+<TR><TD>
+			<P STYLE="font-weight: normal"><FONT FACE="Arial, sans-serif"><FONT SIZE=5>
+			<SCRIPT>document.write(insertarTexto("Consigna"));</SCRIPT>. 
+    </FONT></P>
+
+<!--HTML5 audio-->
+	<audio id="music" preload="true">
+    <SCRIPT>document.write('<source src="./Audios/'+insertarTexto("ApartadoTexto")+insertarTexto("Ejercicio")+'.mp3"></audio>');</SCRIPT>
+		
+	</audio>
+
+	<div id="wrapper">
+		<!--Audio Player Interface-->
+		<div id="audioplayer">
+			<button id="pButton" class="play"></button>
+			<div id="timeline">
+				<div id="playhead"></div>
+			</div>
+		</div>
+	</div>
+
+	<script src="codigo/CodigoAudio/js/html5audio.js" type="text/javascript"></script>
+<!---->
+
+
+			</FONT></FONT></P>
+	</TD>	
+	</TR>
+</TABLE>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<FORM NAME="Formulario">
+	<TABLE WIDTH=100% CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH=300>
+		<COL WIDTH=300>
+		<TR VALIGN=TOP>
+			<TD WIDTH=50% STYLE="border: none; padding: 0cm">
+				<P><TEXTAREA NAME="Campo1" ROWS=13 COLS=37 WRAP=SOFT STYLE="width: 10.00cm; height: 7.00cm; font-family: 'DejaVu Sans Mono', sans-serif; font-size: 14pt; font-weight: bold"></TEXTAREA></P>
+			</TD>
+			<TD WIDTH=50% STYLE="border: none; padding: 0cm">
+				<P><TEXTAREA NAME="Campo2" DISABLED ROWS=13 COLS=38 WRAP=SOFT STYLE="width: 10.00cm; height: 7.00cm; font-family: 'DejaVu Sans Mono', sans-serif; font-size: 14pt; font-weight: bold"></TEXTAREA></P>
+			</TD>
+		</TR>
+<TR>
+
+<TD ALIGN="Center"><INPUT TYPE=BUTTON NAME="Boton" VALUE="Fin Dictado" onClick="finDictado();" STYLE="width: 3cm; height: 0.84cm; font-family: 'Arial', sans-serif; font-size: 12pt"></TD>
+</TR>
+	</TABLE>
+</FORM>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<TABLE WIDTH=843 CELLPADDING=0 CELLSPACING=0>
+	<COL WIDTH=300>
+	<COL WIDTH=243>
+	<COL WIDTH=300>
+	<TR>
+		<TD WIDTH=244 VALIGN=TOP STYLE="border: none; padding: 0cm">
+		<SCRIPT>document.write(Inicio());</SCRIPT>
+			
+		</TD>
+		<TD WIDTH=132 STYLE="border: none; padding: 0cm">
+			<P ALIGN=CENTER><A HREF="01_indice.html"><FONT FACE="Arial, sans-serif">Índice</FONT></A></P>
+		</TD>
+		<TD WIDTH=262 VALIGN=TOP STYLE="border: none; padding: 0cm">
+
+<SCRIPT>document.write('<P ALIGN=RIGHT><A HREF="'+insertarTexto("ApartadoTexto")+(insertarTexto("Ejercicio")+1)+'.html"'+'><IMG SRC="./ImageneSite/go-next_verde.png" NAME="derecha" ALIGN=HIGHT WIDTH=115 WIDTH=115 BORDER=0></A><BR><P>');</SCRIPT>
+		</TD>
+	</TR>
+</TABLE>
+</TABLE>
+</BODY>
+</HTML>
