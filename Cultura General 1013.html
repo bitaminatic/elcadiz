@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="LibreOffice 3.5  (Linux)">
+	<META NAME="CREATED" CONTENT="20140416;10375500">
+	<META NAME="CHANGED" CONTENT="20140512;11184100">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { margin-left: 2 cm; margin-right: 2cm; margin-top: 0.45cm; margin-bottom: 2cm }
+		P { margin-bottom: 0.21cm }
+		TD P { margin-bottom: 0cm }
+		A:link { so-language: zxx }
+	-->
+	</STYLE>
+	</STYLE>
+<SCRIPT LANGUAJE="JavaScript">
+var ListaElementos=["sector servicios o terciario","sector secundario","sector del comercio","sector de la industria"]; //opciones a elegir en su orden
+
+var OpcionCorrecta=ListaElementos[0];
+	ListaElementos=ordenaOpciones(ListaElementos);
+
+function insertarTexto(apartado, nuevo) {
+//--------------------------------------------------------------------------------------------
+//--¡¡ATENCIÓN A LAS COMILLAS (SALVO EN EL PRIMERO) Y LAS COMAS FINALES
+//--------------------------------------------------------------------------------------------
+
+	var TextoCopia1="Los trabajos relacionados con la hostelería pertenecen al", // primera parte del texto izquierda de la imagen
+		Ejercicio = 13, //Aquí el número de Ejercicio -> se corresponde con como nombrarás el archivo tras "Apartado". ej. Apartado1.html
+		ImagenApartado= "sociales.png", //nombre y extensión de la imagen del Apartado
+
+
+		Imagen = "blanco.png", //nombre y extensión de la imagen ilustrativa		
+		ApartadoTexto = "Cultura General 10", //Aqui va el nombre del apartado. ej. Vocales, A, E
+		Consigna = "Señala la opción correcta", // Enunciado del ejercicio
+		TextoCopia2="", // segunda parte del texto derecha de la imagen
+		rutaImagen="./ImagenesActividades/", //NO LO TOQUES -> ruta donde debes poner todas las imágenes
+		Acierto = "MUY BIEN.\n¡Sigue así!", //Mensaje de ánimo por ACIERTO
+		Final= 0, // si es 0 no es la pagina final del apartado, si es 1 es la final
+		Fallo = "HAS COMETIDO ALGÚN ERROR.\nDebes repetir el ejercicio. ¡Ánimo!"; //Mensaje de ánimo por ERROR
+		
+//---------------------------------------------------------------------------------------------
+//-------RECUERDA GUARDAR ESTE ARCHIVO COMO el [número de ejercicio].hml -> ejemplo 1.html
+//--------------------------------------------------------------------------------------------
+
+	if (apartado == "Ejercicio") {
+		return Ejercicio;
+	} else if (apartado == "ApartadoTexto") {
+		return ApartadoTexto;
+	} else if (apartado == "Consigna") {
+		return Consigna;
+	} else if (apartado == "ImagenApartado") {
+		return rutaImagen+ImagenApartado;
+	} else if (apartado == "Imagen") {
+		return rutaImagen+Imagen;
+	} else if (apartado == "TextoCopia1") {
+		return TextoCopia1;
+	} else if (apartado == "TextoCopia2") {
+		return TextoCopia2;
+	} else if (apartado == "Final") {
+		return Final;
+	} else if (apartado == "ListaElementos") {
+		return ListaElementos;
+	} else if (apartado == "NumeroCorrecto") {
+		return NumeroCorrecto;
+	} else if (apartado == "Acierto") {
+		return Acierto;
+	} else if (apartado == "Correcto") {
+		return OpcionCorrecta;
+	} else if (apartado == "Fallo") {
+		return Fallo;
+	}
+	}
+
+function ordenaOpciones(lista)
+	{
+	var seleccionado;	
+	var aleat;
+	var fin=lista.length;
+	var listaFinal=[];
+
+	for (i=0;i<fin;i++){
+	aleat=Math.abs(Math.random()*(fin-i));
+	seleccionado=lista.splice(aleat,1);
+	//alert(seleccionado);
+	listaFinal.push(seleccionado);
+	}
+	
+	return listaFinal;
+	}
+
+
+
+function Inicio ()
+	{
+	if (insertarTexto("Ejercicio")>1) {
+			return '<P ALIGN=LEFT><A HREF="'+insertarTexto("ApartadoTexto")+(insertarTexto("Ejercicio")-1)+'.html"'+'><IMG SRC="./ImageneSite/go-previous_verde.png" NAME="IZQUIERDA" ALIGN=LEFT  WIDTH=115 HEIGHT=115 BORDER=0><BR>';
+			} else {return "";}
+
+	
+	}
+
+function verificarCampo()
+	{
+	var valor,valorString,valores,i, numero;
+
+    for (i=0;i<document.Formulario.Formulario_Radio.length;i++){
+       if (document.Formulario.Formulario_Radio[i].checked)
+          break;
+    	} //for
+    valor = document.Formulario.Formulario_Radio[i].value;
+	valores=insertarTexto("ListaElementos");
+ 	valorString=insertarTexto("Correcto");
+	
+	for (i=0;i<document.Formulario.Formulario_Radio.length;i++){
+       if (valores[i]==valorString){
+		numero=i+1;
+          break;
+			}
+    	} //for
+	
+	if (valor==numero)
+		{
+		if (insertarTexto("Final")==0) {
+			location.href="../Archivos"+insertarTexto("ApartadoTexto")+(insertarTexto("Ejercicio")+1)+".html";
+			} else {alert("Has llegado al Final del Apartado");}
+		
+
+
+		} else {
+		alert(insertarTexto("Fallo"));
+		location.href="../Archivos"+insertarTexto("ApartadoTexto")+(insertarTexto("Ejercicio"))+".html";
+		}
+
+	
+	}//function
+
+
+</SCRIPT>
+</HEAD>
+<BODY LANG="es-ES" DIR="LTR">
+<TABLE>
+<TR>
+<TD WIDTH=50></TD>
+<TD>
+<TABLE WIDTH=843 CELLPADDING=0 CELLSPACING=0>
+	<COL WIDTH=843>
+	<TR>
+		<TD WIDTH=843 VALIGN=TOP STYLE="border: none; padding: 0cm">
+			<P><FONT FACE='Arial, sans-serif'><B>
+			<SCRIPT>document.write("<FONT SIZE=7 COLOR='#999999'> "+insertarTexto("ApartadoTexto")+"<BR>" + "<FONT COLOR='#999999'><FONT SIZE=5> ACTIVIDAD <FONT SIZE=7 COLOR='#777777'>" +insertarTexto("Ejercicio")+"</FONT></FONT><P></P>");
+			</SCRIPT>		
+			</B></FONT></FONT></FONT></P>
+		</TD>
+		<TD>
+		<SCRIPT>document.write("<IMG SRC='"+insertarTexto("ImagenApartado")+"' NAME='logo' ALIGN=LEFT WIDTH=150 BORDER=0><BR>");</SCRIPT>
+		 </TD>
+</TR>
+<TR><TD>
+			<P STYLE="font-weight: normal"><FONT FACE="Arial, sans-serif"><FONT SIZE=4>
+			<SCRIPT>document.write(insertarTexto("Consigna"));</SCRIPT>	
+			</FONT></FONT></P>
+	</TD>	
+	</TR>
+</TABLE>
+
+<TABLE WIDTH=100% CELLPADDING=0 CELLSPACING=0>
+	<COL WIDTH=256*>
+
+	<TR>
+		<TD WIDTH=100% HEIGHT=24 VALIGN=TOP STYLE="border: none; padding: 0cm">
+			<P>
+			<TABLE><TR>			
+			<SCRIPT>document.write('<TD VALIGN="bottom"><FONT FACE="DejaVu Sans Mono, monospace"><FONT SIZE=4 STYLE="font-size: 16pt"><B>'+insertarTexto("TextoCopia1")+"</TD></B></FONT></FONT>");
+					document.write('<TD VALIGN="bottom"><IMG SRC='+ insertarTexto('Imagen') +' NAME="gráficos1" WIDTH=100 HEIGHT=100 BORDER=0 HSPACE=10></TD>');
+					document.write('<TD VALIGN="bottom"><FONT FACE="DejaVu Sans Mono, monospace"><FONT SIZE=4 STYLE="font-size: 16pt"><B>'+insertarTexto("TextoCopia2")+"</TD></B></FONT></FONT><BR><BR>");
+			</SCRIPT>
+			</TR></TABLE>
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=100% VALIGN=TOP STYLE="border: none; padding: 0cm">
+		<FONT FACE="DejaVu Sans Mono, monospace"><FONT SIZE=4 STYLE="font-size: 14pt"><B>
+		<FORM NAME="Formulario">
+			<SCRIPT>
+			var Listado=insertarTexto("ListaElementos");
+			for (var i=0; i<Listado.length ;i++)
+					document.write('<BR> <INPUT TYPE="radio" NAME="Formulario_Radio" VALUE="'+(i+1)+'">'+Listado[i]+'<BR>');
+					
+
+			</SCRIPT>
+		</FORM>
+		</B></FONT>
+		</TD>
+	</TR>
+</TABLE>
+<P ALIGN=RIGHT STYLE="margin-bottom: 0cm"><BR>
+</P>
+<TABLE WIDTH=843 CELLPADDING=0 CELLSPACING=0>
+	<COL WIDTH=300>
+	<COL WIDTH=243>
+	<COL WIDTH=300>
+	<TR>
+		<TD WIDTH=244 VALIGN=TOP STYLE="border: none; padding: 0cm">
+		<SCRIPT>document.write(Inicio());</SCRIPT>
+		</TD>
+		<TD WIDTH=132 STYLE="border: none; padding: 0cm">
+			<P ALIGN=CENTER><A HREF="01_indice.html"><FONT FACE="Arial, sans-serif">Índice</FONT></A></P>
+		</TD>
+		<TD WIDTH=262 VALIGN=TOP STYLE="border: none; padding: 0cm">
+			<P ALIGN=RIGHT><button onClick="verificarCampo();"><IMG SRC="ImageneSite/go-next_verde.png" ALIGN=RIGHT WIDTH=115 HEIGHT=115 BORDER=0> </button><BR>
+		
+
+			
+</P>
+		</TD>
+	</TR>
+</TABLE>
+</TD>
+</TABLE>
+</BODY>
+</HTML>
